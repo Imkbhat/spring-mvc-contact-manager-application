@@ -32,5 +32,6 @@ CREATE TABLE user_contact(
   remark character varying(150),
 CONSTRAINT user_contact_pkey PRIMARY KEY (user_contact_id),
 CONSTRAINT fk_user_id FOREIGN KEY (user_id)
-            REFERENCES user_main (user_id)
+            REFERENCES user_main (user_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE CASCADE
 );
