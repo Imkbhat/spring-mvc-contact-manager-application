@@ -11,7 +11,7 @@ create table user_main(
   phone character varying(50), 
   email character varying(50), 
   address character varying(150), 
-  login_name character varying(45) not null, 
+  login_name character varying(45) UNIQUE not null, 
   password character varying(50), 
   role integer default 2,//normal user 
   login_status integer default 1 //active
