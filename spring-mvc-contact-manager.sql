@@ -13,6 +13,10 @@ create table user_main(
   address character varying(150), 
   login_name character varying(45) UNIQUE not null, 
   password character varying(50), 
-  role integer default 2,//normal user 
-  login_status integer default 1 //active
+  role integer default 2, 
+  login_status integer default 1
 );
+
+--login name should be unique and not null
+--role default 2(normal user)
+--login_status default 1, means active user
