@@ -13,7 +13,8 @@
 
 <c:if test="${sessionScope.userId != null && sessionScope.roleId == 1}">
 	<%-- Admin logged in : Menu --%>
-	<a href="#">Home</a> | <a href="#">User List</a> | <a href="${url_logout}">Log Out</a> 
+	<s:url var="url_ahome" value="/admin/dashboard"/>
+	<a href="${url_ahome}">Home</a> | <a href="<s:url value="/admin/users"/>">User List</a> | <a href="${url_logout}">Log Out</a> 
 </c:if>
 
 <c:if test="${sessionScope.userId != null && sessionScope.roleId == 2}">

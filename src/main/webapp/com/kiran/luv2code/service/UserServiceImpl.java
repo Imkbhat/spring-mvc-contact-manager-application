@@ -47,11 +47,18 @@ public class UserServiceImpl extends BaseDAO implements UserService {
 
 	@Override
 	public List<User> getUsersList() {
-		return userDAO.findAll();
+		return userDAO.findByProperty("role", ROLE_USER);
 	}
 
 	@Override
 	public void changeLoginStatus(Integer userId, Integer loginStatus) {
+		String sql = " UPDATE user_main set login_status=:lst WHERE user_id=:uid ";
+		
+		Map m = new HashMap();
+		m.put("lst", loginStatus);
+		m.put("uid", userId);
+		
+		getNamedParameterJdbcTemplate().update(sql, m);
 		
 	}
 }

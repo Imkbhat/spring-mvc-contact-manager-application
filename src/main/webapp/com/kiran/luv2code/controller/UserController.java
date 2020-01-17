@@ -15,6 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UserController {
@@ -100,6 +102,25 @@ public class UserController {
 			e.printStackTrace();
 			m.addAttribute("error", "User is Name is Already Taken. Please select another User Name");
 			return "redirect:reg_form";
+		}
+	}
+	
+	@RequestMapping(value={"/admin/users"})
+	public String getUserList(Model m){
+		m.addAttribute("userList", userService.getUsersList());
+		return "users";//JSP page, resolved by /WEB-INF/jsp/index.jsp
+	}
+	
+	@RequestMapping(value={"/admin/change_status"})
+	@ResponseBody
+	public String changeLoginStatus(@RequestParam("user_id") Integer userId, @RequestParam("login_status") Integer loginStatus) {
+		try {
+			userService.changeLoginStatus(userId, loginStatus);
+			return "Success : Status Changed Successful.";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "ERROR:Unable to Change Status." ;
 		}
 	}
 }
