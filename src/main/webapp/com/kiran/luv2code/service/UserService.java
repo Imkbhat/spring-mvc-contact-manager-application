@@ -44,4 +44,10 @@ public interface UserService {
 	 */
 	public void changeLoginStatus(Integer userId, Integer loginStatus);
 	
+	/**This method is used to check User Availibility.
+	 * 
+	 * @param userName
+	 * @return
+	 */
+	public Boolean isUserNameExists(String userName);
 }

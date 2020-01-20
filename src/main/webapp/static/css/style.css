@@ -1,0 +1,13 @@
+body {
+	font-family: Aerial, Helvetica, Geneva, sans-serif;
+	font-size: 18px;
+	background-color: #B3E8FF;
+}
+
+.error{
+	color: #FF0000;
+}
+
+.success {
+	color: #0000FF;
+}

@@ -2,13 +2,13 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ page isELIgnored="false"%>
 
-
+<s:url var="url_home" value="/"/>
 <s:url var="url_logout" value="/logout"/>
 <s:url var="url_register" value="/reg_form"/>
 
 <c:if test="${sessionScope.userId == null }">
 	<%-- User is not yet logged in: guest Menu --%>
-	<a href="#">Home</a> | <a href="#">Login</a> | <a href="${url_register}">Register</a> | <a href="#">About</a> | <a href="#">Help</a> 
+	<a href="${url_home}">Home</a> | <a href="${url_home}">Login</a> | <a href="${url_register}">Register</a> | <a href="#">About</a> | <a href="#">Help</a> 
 </c:if>
 
 <c:if test="${sessionScope.userId != null && sessionScope.roleId == 1}">

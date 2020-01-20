@@ -123,4 +123,14 @@ public class UserController {
 			return "ERROR:Unable to Change Status." ;
 		}
 	}
+	
+	@RequestMapping(value={"/check_avail"})
+	@ResponseBody
+	public String checkUserNameAvailibility(@RequestParam("username") String userName) {
+		if(userService.isUserNameExists(userName)) {
+			return "This UserName is Already taken. Choose another Name.";
+		} else {
+			return "Yey!! You can take this";
+		}
+	}
 }
